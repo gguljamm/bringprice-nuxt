@@ -1,0 +1,44 @@
+/* eslint-disable */
+
+import router from 'vue-router'
+
+export default ({ app: { router }, store }) => {
+  /*
+  ** 클라이언트 사이드와 프로덕션 모드에서만 실행됩니다
+  */
+  /*
+  ** Google 애널리틱스 스크립트를 include
+  */
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  /*
+  ** 현재 페이지를 설정
+  */
+  ga('create', 'UA-63865514-1', 'auto')
+  let flag = false;
+  if (window.navigator.userAgent.indexOf('bpAos') >= 0) {
+    ga('create', 'UA-63865514-2', 'auto', 'aos');
+    flag = 'aos';
+  } else if (window.navigator.userAgent.indexOf('bpIos') >= 0) {
+    ga('create', 'UA-63865514-4', 'auto', 'ios');
+    flag = 'ios';
+  }
+  /*
+  ** 라우트가 변경될 때마다 실행 (초기 설정 시에도 실행됨)
+  */
+  router.afterEach((to, from) => {
+    /*
+    ** Google 애널리틱스에게 페이지뷰가 추가된 것을 전달
+    */
+    if (to.name !== from.name) {
+      ga('set', 'page', to.path)
+      ga('send', 'pageview')
+      if (flag) {
+        ga(`${flag}.set`, 'page', to.path)
+        ga(`${flag}.send`, 'pageview')
+      }
+    }
+  })
+}

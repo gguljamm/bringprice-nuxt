@@ -1,0 +1,57 @@
+.flip{
+  cursor: pointer;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 26px;
+  height: 11px;
+}
+
+.switch button {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  background-color: #e1e1e1;
+  .on &{
+    background-color: $cornflower;
+  }
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: -4px;
+  bottom: -2px;
+  background-color: #fff;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  .on &{
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}

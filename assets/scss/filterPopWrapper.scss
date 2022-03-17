@@ -1,0 +1,403 @@
+.filterPopWrapper{
+  transition: .3s ease;
+  width: 340px;
+  position: absolute;
+  top: calc(100% + 20px);
+  background-color: #fff;
+  left: 0;
+  border: solid 1px #cdcdcd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  cursor: default;
+  z-index: 2;
+  .contents-wrap {
+    padding: 0 12px 0 14px;
+    .popWrap{
+      margin-top: 20px;
+    }
+  }
+  &.date{
+    width: 700px;
+    min-height: 485px;
+    .filter-title {
+      height: 60px;
+      padding-top: 4px;
+      > div {
+        display: block;
+        .x-btn {
+          float: right;
+        }
+      }
+    }
+    .popCalendarWrap {
+      position: relative;
+      .selectDate {
+        top: -50px;
+        left: 14px;
+        position: absolute;
+        text-align: left;
+        > div:first-of-type {
+          > div{
+            color: #585858;
+            .start{
+              position: relative;
+              .calIcon{
+                position: absolute;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 15px 17px;
+                width: 15px;
+                height: 17px;
+                top: calc(50% - 9px);
+                left: 14px;
+                background-image: url(~assets/img/common/cal-icon.svg);
+              }
+              > button{
+                width: 181px;
+                text-align: left;
+                padding-left: 39px;
+              }
+            }
+            .end{
+              margin-left: 4px;
+              > button{
+                width: 152px;
+                text-align: left;
+                padding-left: 10px;
+              }
+            }
+            .start, .end{
+              cursor: pointer;
+              float: left;
+              position: relative;
+              > button{
+                transition: .3s ease;
+                height: 40px;
+                border-radius: 4px;
+                border: solid 1px #cdcdcd;
+                background-color: #ffffff;
+              }
+              &.focused {
+                > button{
+                  color: #000;
+                  box-sizing: border-box;
+                  border: 2px solid $dodger-blue;
+                }
+              }
+              .arrowIconWrap{
+                position: absolute;
+                top: 0;
+                right: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                > div{
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 14px 14px;
+                  width: 18px;
+                  height: 18px;
+                  &.left{
+                    background-image: url(~assets/img/common/chevron-left.svg);
+                  }
+                  &.right{
+                    transform: rotate(180deg);
+                    background-image: url(~assets/img/common/chevron-left.svg);
+                  }
+                }
+              }
+            }
+          }
+          > button {
+            width: 226px;
+            height: 76px;
+            border-radius: 2px;
+            background-color: $cornflower;
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFF;
+          }
+        }
+      }
+      .calBottomSearch > div {
+        width: 100%;
+      }
+      .calContent{
+        background-color: #fff;
+        position: static;
+        overflow-y: visible;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0 10px 10px 10px;
+        > div{
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          white-space: nowrap;
+          position: relative;
+          > div {
+            width: 50%;
+            font-size: 0;
+            display: inline-block;
+            padding-bottom: 0;
+            vertical-align: top;
+            .cwmonth_block{
+              padding: 30px 16px 24px 16px;
+              color: #000;
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .cwmonth_week{
+              > a, .day_of_week {
+                > div:nth-of-type(3) {
+                  font-size: 8px;
+                }
+              }
+              .cwdate_block.start, .cwdate_block.end {
+                .date_val {
+                  span:first-of-type {
+                    font-size: 14px;
+                    font-weight: bold;
+                  }
+                  span:nth-child(2) {
+                    color: #e9eeff;
+                  }
+                }
+              }
+            }
+            &::after {
+              clear: both;
+              content: '';
+              display: block;
+            }
+          }
+        }
+      }
+      .calBottom{
+        height: 55px;
+        > div {
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          > div > div > div > div:first-of-type {
+            p:first-of-type {
+              font-size: 16px;
+              color: #000;
+              line-height: 20px;
+              .price {
+                margin-left: 5px;
+                font-weight: bold;
+                color: #000;
+              }
+            }
+            p:nth-child(2) {
+              font-size: 10px;
+              color: #868686;
+            }
+          }
+        }
+        .resetBtn{
+          margin: 0;
+          position: static;
+          z-index: 10;
+          color: #868686;
+          font-size: 12px;
+          padding-left: 14px;
+        }
+      }
+    }
+  }
+  .filter-title{
+    height: 53px;
+    line-height: 53px;
+    background-color: #f9f9f9;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p{
+        font-size: 16px;
+        font-weight: bold;
+        color: #585858;
+      }
+      .x-btn {
+        width: 22px;
+        height: 53px;
+        background-size: 20px 20px;
+        background-position: center center;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-image: url(~assets/img/common/x_black.svg);
+        background-color: transparent;
+      }
+    }
+  }
+  .filter-wrap{
+    padding: 0 12px 0 14px;
+  }
+  .type-check{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > p{
+      font-size: 14px;
+      color: #000;
+    }
+  }
+  .check-list{
+    margin-top: 20px;
+    li, div {
+      &:first-of-type{
+        margin-top: 0;
+      }
+      margin-top: 14px;
+      label{
+        display: block;
+        cursor: pointer;
+      }
+      .check-wrap {
+        display: flex;
+        align-items: center;
+        .inputCheck {
+          display: none;
+        }
+        .checked {
+          transition: .3s ease;
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+          border: 1.5px solid #cdcdcd;
+          background-color: #fff;
+          position: relative;
+          &.active{
+            background-color: $dodger-blue;
+            border: 1.5px solid $dodger-blue;
+          }
+          &.disable{
+            border-color: #868686;
+            background-color: #868686;
+          }
+          .checkSvg{
+            position: absolute;
+            font-size: 32px;
+            margin: -8px;
+            color: #fff;
+          }
+        }
+        .title{
+          font-size: 14px;
+          color: #000;
+          margin-left: 15px;
+        }
+        .info{
+          font-size: 14px;
+          color: #868686;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  .vue-slider-component .vue-slider{
+    border-radius: 0;
+    &::after, &::before{
+      content: '';
+      width: 10px;
+      height: 4px;
+      background-color: #ccc;
+      position: absolute;
+    }
+    &::after{
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      left: 100%;
+    }
+    &::before{
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      left: -10px;
+    }
+  }
+  .etcFilter, .rating {
+    .vue-slider-component .vue-slider {
+      &::after{
+        background-color: #ccc;
+      }
+      &::before{
+        background-color: rgb(178, 191, 234);
+      }
+    }
+  }
+  .vue-slider-component .vue-slider-dot{
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .vue-slider-component .vue-slider-dot .vue-slider-dot-handle{
+    width: 20px;
+    height: 20px;
+    background-color: $dodger-blue;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.24), 0 0 1px 0 rgba(0, 0, 0, 0.12);
+  }
+  .flip {
+    .switch{
+      .slider.round{
+        background-color: #868686;
+      }
+    }
+    .switch.on.disable{
+      .slider.round{
+        background-color: #868686;
+      }
+      .slider.round::before{
+        background-color: #fff;
+      }
+    }
+    .switch.on{
+      .slider.round{
+        background-color: #b2bfea;
+      }
+      .slider.round::before{
+        background-color: $dodger-blue;
+      }
+    }
+  }
+  .submitBtn{
+    width: 100%;
+    height: 50px;
+    font-size: 12px;
+    color: #868686;
+    margin-top: 20px;
+    &::before{
+      content: '';
+      display: block;
+      height: 1px;
+      margin-left: -14px;
+      margin-right: -12px;
+      background-color: #f2f2f2;
+    }
+    .reset{
+      cursor: pointer;
+      float: left;
+      line-height: 50px;
+    }
+    .count{
+    }
+    .btnWrap{
+      float: right;
+      line-height: 50px;
+      .submit{
+        margin-left: 10px;
+        padding: 8px 14px;
+        color: #fff;
+        border-radius: 4px;
+        background-color: $dodger-blue;
+      }
+    }
+  }
+}

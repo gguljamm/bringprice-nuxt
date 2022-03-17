@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist
+
+# build file
+build
+
+cordova/platforms
+cordova/www
+cordova/plugins
+
+.idea

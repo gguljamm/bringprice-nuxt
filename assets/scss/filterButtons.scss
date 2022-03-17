@@ -1,0 +1,111 @@
+
+.top-filter {
+  transition: .3s ease;
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 0;
+  .swiper-slide{
+    width: auto !important;
+  }
+  .swiper-container{
+    overflow: visible;
+  }
+  ul {
+    width: 100%;
+  }
+
+  .filters:not(.quick) {
+    padding: 8px 33px 8px 14px;
+  }
+
+  .filters {
+    transition: 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    color: #4a4a4a;
+    border: 1px solid #cdcdcd;
+    height: 33px;
+    background-color: #FFF;
+    border-radius: 16.5px;
+    display: inline-block;
+    margin-left: 6px;
+    line-height: 17px;
+    font-size: 14px;
+    &:not(.mobile):not(.active):not(.popOn):hover{
+      background-color: #f9f9f9;
+    }
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &.quick {
+      padding: 8px 14px 8px 14px;
+      .point{
+        color: $dodger-blue;
+        font-weight: bold;
+      }
+      .x_button{
+        float: right;
+        width: 15px;
+        height: 15px;
+        background-size: contain;
+        background-image: url(~assets/img/common/x_blue.svg);
+      }
+    }
+    &.popOn {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      .filterPoint{
+        transform: rotate(180deg);
+      }
+    }
+
+    .filterPoint {
+      transition: .3s ease;
+      position: absolute;
+      top: calc(50% - 2.5px);
+      right: 8px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #000;
+      opacity: 0.7;
+      clear: both;
+    }
+
+    &.date, &.option {
+      padding: 8px 14px 8px 38px;
+      background-size: 16px 16px;
+      background-position: 14px center;
+      background-repeat: no-repeat;
+    }
+
+    &.date {
+      background-image: url(~assets/img/common/date-icon.svg);
+    }
+
+    &.option {
+      background-image: url(~assets/img/common/users.svg);
+    }
+    .resetFilter{
+      cursor: pointer;
+      width: 17px;
+      height: 17px;
+      position: absolute;
+      top: calc(50% - 8.5px);
+      right: 8px;
+      background-image: url(~assets/img/common/x_blue.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  .filters.active {
+    color: $dodger-blue;
+    background-color: #e9eeff;
+    border-color: #e9eeff;
+  }
+
+}
